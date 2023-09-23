@@ -1,0 +1,31 @@
+/* src/Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(104, 207, 166);
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin: 0 10px;
+    cursor: pointer;
+  
+  }
+  li{
+    list-style: none;
+  }
+  .nav-item:hover {
+    text-decoration: underline;
+  }
+  

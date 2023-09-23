@@ -1,0 +1,8 @@
+.Courses{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+}
+.list{
+    list-style: none;
+}
