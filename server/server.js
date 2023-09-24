@@ -109,7 +109,7 @@ app.post('/admin/signup',async (req, res) => {
   res.json({message:'Admin created successfuly',token})
  }
 });
-app.get('/',()=>{
+app.get('/',(req,res)=>{
   res.json("Hii");
 });
 app.post('/admin/login', async(req, res) => {
