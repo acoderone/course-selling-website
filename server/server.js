@@ -3,15 +3,19 @@ const app = express();
 const jwt = require('jsonwebtoken');//helps you encrypt or decrypt object or strings
 const cors = require('cors');
 const mongoose=require('mongoose'); //help to connect to mongodb
+require('dotenv').config();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  
+));
 
+const PORT=process.env.PORT || 8000;
 let ADMINS = [];
 let USERS = [];
 let COURSES = [];
 let cnt = 0;
 
-const secretKey = "MYSe3cr4t5k3y";
+const secretKey=process.env.secretKey;
 
 
 const userSchema=new mongoose.Schema({
@@ -80,7 +84,7 @@ const auth = (req, res, next) => {
 
 
 //Connect to the mongodb
-mongoose.connect('mongodb+srv://avi5200786:Ashish%40123@cluster0.aopn06v.mongodb.net/courses', {
+mongoose.connect(process.env.MONGODB_KEY, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -213,6 +217,6 @@ res.status(403).json({message:"User not found"});
 }
 });
 
-app.listen(8000, () => {
-  console.log('Server is listening on port 8000');
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
