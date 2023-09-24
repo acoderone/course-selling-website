@@ -88,7 +88,12 @@ const auth = (req, res, next) => {
 mongoose.connect(process.env.MONGODB_KEY, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+})
+.then(()=>{
+  console.log(`Connected To MongoDB`);
+})
+.catch((error)=>{console.log(`${error}`);});
+;
 // Admin routes
 app.post('/admin/signup',async (req, res) => {
   const {username,password} = req.body;
