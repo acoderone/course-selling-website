@@ -10,7 +10,7 @@ function Courses() {
     const token = localStorage.getItem('token');
     const fetchCourses = async () => {
       try {
-        const response = await axios.get(`http://localhost:${PORT}/admin/courses`, {
+        const response = await axios.get(`http://localhost:${PORT}/users/courses`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
