@@ -10,7 +10,7 @@ function ShowCourses() {
     const navigate=useNavigate();
     const editCourse=(course)=>{
         
-     navigate(`/admin/editCourses/${course.id}`);
+     navigate(`/admin/editCourses/${course._id}`);
     }
     // Add code to fetch courses from the server
     // and set it in the courses state variable.
