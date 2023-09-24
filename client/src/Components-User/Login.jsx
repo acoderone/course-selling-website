@@ -23,7 +23,7 @@ function Login({handleSignin}) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/users/login', {
+      const response = await axios.post('/user/login', {
         username,
         password,
       });
