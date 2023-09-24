@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, Button ,CardMedia} from '@mui/material';
 import './Courses.css'
+const PORT=process.env.PORT || 8000;
 function Courses() {
   const [courses, setCourses] = useState([]);
  const[Error,setError]=useState('');
@@ -9,7 +10,7 @@ function Courses() {
     const token = localStorage.getItem('token');
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/users/courses', {
+        const response = await axios.get(`http://localhost:${PORT}/admin/courses`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -8,7 +8,7 @@ import { useState } from 'react';
 import './AdminSignup.css'
 import { useNavigate } from 'react-router-dom';
 
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 8000;
 function AdminSignup() {
   const [username,setUsername]=useState('');
   const [password,setPassword]=useState('');

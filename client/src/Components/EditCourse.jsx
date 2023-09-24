@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardMedia, CardContent, Button, TextField } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 8000;
 function EditCourse() {
   const { courseId } = useParams();
   const [course, setCourse] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
-  const [url, setUrl] = useState('');
+  const [imageLink, setImageLink] = useState('');
 
   useEffect(() => {
     const fetchCourseData = async () => {
@@ -24,7 +24,7 @@ function EditCourse() {
         setTitle(response.data.course.title);
         setDescription(response.data.course.description);
         setPrice(response.data.course.price);
-        setUrl(response.data.course.url);
+        setImageLink(response.data.course.imageLink);
       } catch (error) {
         // Handle error, e.g., show an error message to the user
         console.error(error);
@@ -39,7 +39,7 @@ function EditCourse() {
       const token = localStorage.getItem('token');
       await axios.put(
         `http://localhost:${PORT}/admin/courses/${courseId}`,
-        { title, price, description, url },
+        { title, price, description, imageLink },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ function EditCourse() {
         title,
         description,
         price,
-        url,
+        imageLink,
       });
 
      
@@ -117,8 +117,8 @@ function EditCourse() {
             id='outlined-required'
             label='Image-Link'
             type='url'
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            value={imageLink}
+            onChange={(e) => setImageLink(e.target.value)}
           />
           <br />
           <Button className='button' variant='contained' onClick={handleEdit}>

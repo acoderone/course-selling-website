@@ -4,13 +4,13 @@ import axios from 'axios';
 import { Card, CardContent,Button ,CardMedia} from "@mui/material";
 import './ShowCourses.css';
 import { useNavigate } from "react-router-dom";
-const PORT=process.env.PORT;
+const PORT=process.env.PORT||8000;
 function ShowCourses() {
     const [courses, setCourses] = useState([]);
     const navigate=useNavigate();
     const editCourse=(course)=>{
         
-     navigate(`/admin/editCourses/${course.id}`);
+     navigate(`/admin/editCourses/${course._id}`);
     }
     // Add code to fetch courses from the server
     // and set it in the courses state variable.
