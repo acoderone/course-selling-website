@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardMedia, CardContent, Button, TextField } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+const PORT=process.env.PORT;
 function EditCourse() {
   const { courseId } = useParams();
   const [course, setCourse] = useState(null);
@@ -15,7 +15,7 @@ function EditCourse() {
     const fetchCourseData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:8000/admin/courses/${courseId}`, {
+        const response = await axios.get(`http://localhost:${PORT}/admin/courses/${courseId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -38,7 +38,7 @@ function EditCourse() {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:8000/admin/courses/${courseId}`,
+        `http://localhost:${PORT}/admin/courses/${courseId}`,
         { title, price, description, url },
         {
           headers: {

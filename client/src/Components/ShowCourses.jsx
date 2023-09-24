@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Card, CardContent,Button ,CardMedia} from "@mui/material";
 import './ShowCourses.css';
 import { useNavigate } from "react-router-dom";
+const PORT=process.env.PORT;
 function ShowCourses() {
     const [courses, setCourses] = useState([]);
     const navigate=useNavigate();
@@ -18,7 +19,7 @@ function ShowCourses() {
 
         const fetchCourses=async()=>{
             try{
-                const response=await axios.get('http://localhost:8000/admin/courses',{
+                const response=await axios.get(`http://localhost:${PORT}/admin/courses`,{
                     headers:{
                         Authorization:`Bearer ${token}`,
                     },

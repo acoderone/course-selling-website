@@ -8,6 +8,7 @@ import { useState } from 'react';
 import './AdminSignup.css'
 import { useNavigate } from 'react-router-dom';
 
+const PORT=process.env.PORT;
 function AdminSignup() {
   const [username,setUsername]=useState('');
   const [password,setPassword]=useState('');
@@ -23,7 +24,7 @@ const handleClick2=()=>{
   const handleSignup=async(e)=>{
   e.preventDefault();
   try{
-   const response= await axios.post('http://localhost:8000/admin/signup',{username,password})
+   const response= await axios.post(`http://localhost:${PORT}/admin/signup`,{username,password})
    if(response.status===200){
     alert("Signup successful");
     navigate('/admin/login');

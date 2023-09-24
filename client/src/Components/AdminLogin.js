@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './AdminLogin.css';
-
+const PORT=process.env.PORT || 8000;
 function Login({ handleSignin }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
@@ -23,7 +23,7 @@ function Login({ handleSignin }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/admin/login', {
+      const response = await axios.post(`http://localhost:${PORT}/admin/login`, {
         username,
         password,
       });

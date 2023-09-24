@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import './CreateCourses.css';
 import axios from 'axios';
+const PORT=process.env.PORT;
 /// You need to add input boxes to take input for users to create a course.
 /// I've added one input so you understand the api to do it.
 function CreateCourse() {
@@ -18,7 +19,7 @@ function CreateCourse() {
        e.preventDefault();
        try{
         const token = localStorage.getItem('token');
-        const response=await axios.post('http://localhost:8000/admin/courses',{title,price,description,imageLink,published},
+        const response=await axios.post(`http://localhost:${PORT}/admin/courses`,{title,price,description,imageLink,published},
         {
 
           headers:{
