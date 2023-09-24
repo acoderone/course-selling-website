@@ -23,7 +23,7 @@ function Login({ handleSignin }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {                               
-      const response = await axios.post('https://course-selling-website-api.vercel.app/admin/login', {
+      const response = await axios.post('https://course-selling-website-sl6x.onrender.com/admin/login', {
         username,
         password,
       });
