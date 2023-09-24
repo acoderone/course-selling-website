@@ -5,13 +5,13 @@ const cors = require('cors');
 const mongoose=require('mongoose'); //help to connect to mongodb
 require('dotenv').config();
 app.use(express.json());
-app.use(cors(
-  {
-    origin:["https://course-selling-website-alpha.vercel.app"],
-    methods:["POST","GET"],
-    credentials:true
-  }
-));
+app.use(
+  cors({
+    origin: ['https://course-selling-website-alpha.vercel.app'],
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
 
 const PORT=process.env.PORT || 8000;
 let ADMINS = [];
