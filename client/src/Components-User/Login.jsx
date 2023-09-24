@@ -23,7 +23,7 @@ function Login({handleSignin}) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/users/login', {
+      const response = await axios.post('/users/login', {
         username,
         password,
       });
