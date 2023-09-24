@@ -109,7 +109,9 @@ app.post('/admin/signup',async (req, res) => {
   res.json({message:'Admin created successfuly',token})
  }
 });
-
+app.get('/',()=>{
+  res.json("Hii");
+});
 app.post('/admin/login', async(req, res) => {
   const { username, password} = req.body;
   const admin=await Admin.findOne({username,password});
